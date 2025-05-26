@@ -10,11 +10,13 @@ import { AuthService } from './auth.service'
 import { JwtGuard } from './guards/jwt.guard'
 import { GetUser } from './decorators/user.decorator'
 import { ContextUser } from './auth.types'
+import { Public } from './decorators/public.decorator'
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Public()
   @Post('login')
   async login(@Body() loginDto: { username: string; password: string }) {
     try {
@@ -45,6 +47,6 @@ export class AuthController {
   @UseGuards(JwtGuard)
   @Get('profile')
   async getProfile(@GetUser() user: ContextUser) {
-    return this.authService.getProfile(user.id)
+    return this.authService.getProfile(user.userId)
   }
 }

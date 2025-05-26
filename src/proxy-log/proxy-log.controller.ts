@@ -4,7 +4,7 @@ import { PaginatedResult } from '../common/paginate'
 import { ProxyLog } from './proxy-log.schema'
 import { JwtGuard } from 'src/auth/guards/jwt.guard'
 
-@Controller('api/proxy-logs')
+@Controller('proxy-logs')
 @UseGuards(JwtGuard)
 export class ProxyLogController {
   constructor(private readonly proxyLogService: ProxyLogService) {}

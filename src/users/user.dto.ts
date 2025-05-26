@@ -1,3 +1,8 @@
+import { IsInt } from 'class-validator'
+import { IsOptional } from 'class-validator'
+import { Min } from 'class-validator'
+import { Type } from 'class-transformer'
+
 export class GeoDto {
   lat: string
   lng: string
@@ -29,6 +34,15 @@ export class UserDto {
 }
 
 export class UserPaginationDto {
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
   page?: number
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
   limit?: number
 }

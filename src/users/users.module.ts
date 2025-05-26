@@ -5,11 +5,13 @@ import { UserService } from './users.service'
 import { UserController } from './users.controller'
 import { User, UserSchema } from './user.schema'
 import { HttpModule } from '@nestjs/axios'
+import { ProxyModule } from '../proxy-log/proxy.module'
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     HttpModule,
+    ProxyModule,
   ],
   controllers: [UserController],
   providers: [UserService],

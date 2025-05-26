@@ -9,6 +9,7 @@ import { AppService } from './app.service'
 import { AuthModule } from './auth/auth.module'
 import { JwtGuard } from './auth/guards/jwt.guard'
 import { UsersModule } from './users/users.module'
+import { ProxyModule } from './proxy-log/proxy.module'
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { UsersModule } from './users/users.module'
     }),
     UsersModule,
     AuthModule,
+    ProxyModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: JwtGuard }],

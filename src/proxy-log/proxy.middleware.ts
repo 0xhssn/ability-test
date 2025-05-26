@@ -6,11 +6,9 @@ import { ProxyRuleService } from '../proxy-rule/proxy-rule.service'
 import { ConfigService } from '@nestjs/config'
 
 // Extend the Request interface to include custom properties
-declare global {
-  namespace Express {
-    interface Request {
-      startTime?: number
-    }
+declare module 'express' {
+  interface Request {
+    startTime?: number
   }
 }
 

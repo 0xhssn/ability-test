@@ -10,7 +10,7 @@ import { AuthUser } from '../auth-user.schema'
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     super({
-      usernameField: 'email',
+      usernameField: 'username',
       session: false,
     })
   }

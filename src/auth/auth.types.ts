@@ -7,6 +7,7 @@ export interface ContextUser {
   id: string
   username: string
   role: UserRole
+  userId: string
 }
 
 export class AccessToken {
